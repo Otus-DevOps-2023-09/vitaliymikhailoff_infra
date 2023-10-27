@@ -21,11 +21,11 @@ URL: https://vpn.mikhailov.cf
 ## Основные сервисы Yandex Cloud
 
 ### Основное задание:
-testapp_IP = 51.250.93.11
-testapp_port = 9292
+testapp_IP = 51.250.93.11  
+testapp_port = 9292  
 
 ### Дополнительное задание:
-Написал startup config - yc-confing.txt
+Написал startup config - yc-config.txt
 Команда CLI для развертки ВМ с применением конфига:
 
 yc compute instance create \
