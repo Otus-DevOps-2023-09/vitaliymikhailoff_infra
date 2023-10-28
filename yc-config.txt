@@ -1,0 +1,13 @@
+#cloud-config
+datasource:
+ Ec2:
+  strict_id: false
+ssh_pwauth: no
+users:
+- name: yc-user
+  sudo: ALL=(ALL) NOPASSWD:ALL
+  shell: /bin/bash
+  ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1cMA2Fc1aVwDpiG35lCW27VcM/AFSm8sD9P/DPyM4Atwd/bA6xDRfO3Dt6F9XSTicIXkJB1Egp0j7zrTOHO84tOsTMMaJp6x3BSxwmDAiYnJUKNYQfor1HZ6aF0N2H8SgX9snt3kz9SRzY+S616db76YLZcTng0Ks3eEDl1pjZsM/k9TxIZx79M4zfBQ/ORDCp0BLCUFTxfyhCebTS20APhchSEzap5b6FJWzNNfXJCmyRhb38CT/xBQ3LkmgfzI2uKFqRLwmxE76Kz/zVrpMIvAMdAm/L3crRue0hoZAzF2tlE3dUY327JIEy0SgeD1c78mdCn4jgRyHHErOATlbSOPvNHOzh3wLpI1jgwAlhEVwjnsdFgoTEt4FkaNe3WYk8A/LGk/1JMdz73P8qN9v9/kFMl0pf8EIphUkG9rR0c3Jgf369FtCQLTTmwGR37TAHBtVxUVk2zbrbxaBt7bD4RB2BjL/DwwC5bR9XQbS/rEcX3yCxLehiIngwaMQa1U= vitaliymikhailoff@DESKTOP-94Q1AJ8
+runcmd:
+  - sudo apt -y install git && git clone --branch=cloud-testapp https://github.com/Otus-DevOps-2023-09/vitaliymikhailoff_infra.git && cd vitaliymikhailoff_infra && sudo ./install_ruby.sh && ./install_mongodb.sh && ./deploy.sh
