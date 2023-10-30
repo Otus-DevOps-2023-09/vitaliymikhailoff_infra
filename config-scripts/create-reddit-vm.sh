@@ -1,3 +1,4 @@
+#!/bin/bash
 yc compute instance create \
   --name reddit-app \
   --hostname reddit-app \
