@@ -1,6 +1,6 @@
 {
     "service_account_key_file": "key.json",
-    "folder_id": "<your folder id>",
+    "folder_id": "7b1grg25ep10glj3dtadn",
     "source_image_family": "ubuntu-1604-lts",
-    "subnet_id": "<your subnet id>"
+    "subnet_id": "e9bn8d1cek0bar3nhk4l7"
 }
