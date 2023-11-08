@@ -14,10 +14,9 @@ provider "yandex" {
   folder_id                = var.folder_id
   zone                     = var.zone
 }
-
 resource "yandex_compute_instance" "app" {
   count = var.count_vm
-  name = "reddit-app${count.index}"
+  name = "reddit-app-${var.environment_space}-${count.index}"
   zone = var.zone
 
   resources {
@@ -27,13 +26,13 @@ resource "yandex_compute_instance" "app" {
 
   boot_disk {
     initialize_params {
-      image_id = var.image_id
+      image_id = var.app_disk_image
     }
   }
 
   network_interface {
     subnet_id = var.subnet_id
-    nat       = true
+    nat = true
   }
 
   metadata = {
@@ -48,13 +47,20 @@ resource "yandex_compute_instance" "app" {
     private_key = file(var.private_key_path)
   }
 
+  provisioner "local-exec" {
+    command = "echo ${var.mongo_ip}"
+  }
+
   provisioner "file" {
-    source      = "files/puma.service"
+    source      = "../modules/app/files/puma.service"
     destination = "/tmp/puma.service"
   }
-
   provisioner "remote-exec" {
-    script = "files/deploy.sh"
+    inline = [
+      "sed -i '/Restart*/a Environment=\"DATABASE_URL=${var.mongo_ip}\"' /tmp/puma.service"
+    ]
   }
-
+  provisioner "remote-exec" {
+    script = "../modules/app/files/deploy.sh"
+  }
 }

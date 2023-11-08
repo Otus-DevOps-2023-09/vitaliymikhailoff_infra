@@ -1,5 +1,8 @@
 #!/bin/bash
-apt -y install git
+until sudo apt-get install -y git 2>&1;
+do
+  sleep 1
+done
 cd /
 git clone -b monolith https://github.com/express42/reddit.git
 cd reddit && bundle install
