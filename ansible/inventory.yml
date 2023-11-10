@@ -1,0 +1,12 @@
+app:
+  hosts:
+  children:
+    appserver:
+      hosts:
+        158.160.36.11:
+db:
+  hosts:
+  children:
+    dbserver:
+      hosts:
+        158.160.36.11:
