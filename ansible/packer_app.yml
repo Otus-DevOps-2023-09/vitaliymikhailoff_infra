@@ -4,7 +4,7 @@
   become: true
   tasks:
   - name: Install Ruby && Bundler
-    package: 
+    package:
       name: "{{ item }}"
       state: present
     with_items:

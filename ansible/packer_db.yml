@@ -12,7 +12,7 @@
       upgrade: yes
       update_cache: yes
 
-  - name: Install mongodb 
+  - name: Install mongodb
     apt:
       name: mongodb
       state: present

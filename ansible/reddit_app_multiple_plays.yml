@@ -50,7 +50,7 @@
         repo: 'https://github.com/express42/reddit.git'
         dest: /home/ubuntu/reddit
         version: monolith
-      notify: reload pum
+      notify: reload puma
 
     - name: bundle install
       bundler:
