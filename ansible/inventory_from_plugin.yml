@@ -9,4 +9,3 @@ all:
         130.193.38.250:
           ansible_host: 130.193.38.250
     ungrouped: {}
-    
