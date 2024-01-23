@@ -7,7 +7,6 @@
 *.retry
 jdauphant.nginx
 vault.key
-
 # Vagrant & molecule 
 .vagrant/ 
 *.log 
